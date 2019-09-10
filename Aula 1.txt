@@ -11,5 +11,3 @@ Cetifições Microsoft - Procurar!
 Algebra - representação simbólica de números e a manipulação desses simbolos
 
 pesquisar .net core, vai ser usado no tcc 
-
-https://github.com/darkeght/Aula1Tuma2/blob/master/Diagrama%20Inicial.pdf
