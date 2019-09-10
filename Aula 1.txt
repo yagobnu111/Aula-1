@@ -10,4 +10,4 @@ Cetifições Microsoft - Procurar!
 
 Algebra - representação simbólica de números e a manipulação desses simbolos
 
-pesquisar .net core, vai ser usado no tcc - pesquisar
+pesquisar .net core, vai ser usado no tcc 
