@@ -1,0 +1,13 @@
+https://github.com/darkeght/tranigcsharp/tree/master/Slides (treinamento c# 1)
+
+$ "{var} é tal"
+string.Format ?
+
+commit all - é como um save.
+sync - joga pra nuvem.
+f9 - break point?
+f10 - pula algumas coisas
+f11 - vai ponto por ponto
+immediate window - escreve o nome da variável e mostra o valor atribuído 
+ctrl . - em cima de ... indica o que poderia ser feito
+
