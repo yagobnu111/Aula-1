@@ -1,0 +1,31 @@
+Laços de repetição
+
+*While
+
+*For
+-for tab+tab (cria o for automaticamente)
+
+*Foreach
+
+*Linq? (Engloba todos os 3 anteriores)
+
+
+Conversão
+ 
+.ToString (Chars tem um número, se tentar se somar ex:  nome = "Gabriel";
+							for (int i = 1; i < 10; i++)
+							{	
+							(nome[i - 1] + nome[i]) //o computador vai tentar somar o número de cada caractere)
+							(nome[i - 1].ToString() + nome[i].ToString() //converte os caracteres em string e concatena um ao outro. 	
+
+
+/// summary - Those are special comments that become the documentation for the method. 
+	      The contents of <summary>, the parameter tags, etc. that are generated show up 
+	      in intellisense when you or someone else is getting ready to call your method. 
+              They can essentially see all the documentation for your method or class without 
+	      having to go to the file itself to figure out what it does (or try to just read 
+              the method signature and hope for the best).
+
+explicação do ms paint foi boa 
+
+selecionar uma variavel e ctrl R R para mudar todas as variáveis. 
