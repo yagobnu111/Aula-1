@@ -29,3 +29,7 @@ Conversão
 explicação do ms paint foi boa 
 
 selecionar uma variavel e ctrl R R para mudar todas as variáveis. 
+
+
+Indexof
+split
