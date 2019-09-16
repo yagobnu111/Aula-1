@@ -1,0 +1,23 @@
+Console.ReadLine sempre retorna uma string, por isso é preciso converter.
+
+Console.WriteLine("Vamos conversar? sim(1) não(2)");
+            var resposta = Console.ReadKey().KeyChar.ToString();
+
+read.key retorna uma tecla não string, por isso preciso converter a informação
+sem o key char, o computador ia pegar o número da tabela ascII referente à tecla digitada em vez do número digitado 
+
+// menos interações com a máquina, não precisa dar enter. isso se chama UX
+
+UX - User experience. 
+UI - User interface.
+
+int.Parse = passar um valor para o tipo int
+
+// pega a hora atual 
+while (true)
+            {
+                Console.Clear();		 // pega a hora atual e define a formatação	
+                Console.WriteLine($"Hora atual : {DateTime.Now.ToString("HH:mm:ss.fff")}");
+                Thread.Sleep(500);
+		//faz com que o computador durma por essa quantidade de milisegundos
+            }

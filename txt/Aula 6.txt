@@ -1,0 +1,19 @@
+//deixa as infomações mais claras
+
+Foreach
+
+           Console.WriteLine("Informar o texto :");
+            var conteudoDoTexto = Console.ReadLine();
+
+            foreach ( var item in conteudoDoTexto)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.ReadKey();
+
+Split
+
+var conteudoDoTexto = "Aqui vou colocar meu nome Gabriel para realizar a busca";
+var conteudoTextoSplit = conteudoDoTexto.Split(' '); // separa o texto em palavras definindo o espaço como parametro para a separação 
+						     // retorna um vetor com cada palavra em um indice	  
