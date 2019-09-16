@@ -10,7 +10,7 @@ namespace ExerciciosAula5
     {
         static void Main(string[] args)
         {
-            Ex07Ver2();
+            Ex07Ver01();
         }
         /// <summary>
         /// Dá as boas vindas ao usuário
@@ -20,6 +20,7 @@ namespace ExerciciosAula5
             Console.WriteLine("Seja bem vindo! Pressione qualquer tecla para finalizar");
             Console.ReadKey();
         }
+      
         /// <summary>
         /// Pergunta o nome e dá as boas vindas
         /// </summary>
@@ -30,6 +31,7 @@ namespace ExerciciosAula5
             Console.WriteLine($"Seja bem vindo! {name}");
             Console.ReadKey();
         }
+        
         /// <summary>
         /// Pergunta nome e idade e diz se é de maior
         /// </summary>
@@ -47,6 +49,7 @@ namespace ExerciciosAula5
 
             Console.ReadKey();
         }
+        
         /// <summary>
         /// Informa a quantidade de caracteres em um texto informado
         /// </summary>
@@ -60,6 +63,7 @@ namespace ExerciciosAula5
             Console.WriteLine($"O seu texto tem {frase.Length} caracteres ");
             Console.ReadKey();
         }
+        
         /// <summary>
         /// Retorna o primeiro e último caractere de uma frase
         /// </summary>
@@ -71,6 +75,7 @@ namespace ExerciciosAula5
             Console.WriteLine($"O primeiro caractere é '{frase[0]}' e o último é '{frase[frase.Length - 1]}'");
             Console.ReadKey();
         }
+        
         /// <summary>
         /// Substitui a palavra 'banana' por 'laranja' em um texto informado
         /// </summary>
@@ -83,14 +88,17 @@ namespace ExerciciosAula5
             Console.WriteLine(frase);
             Console.ReadKey();
         }
-
-        private static void Ex07Ver1()
+        
+        /// <summary>
+        /// Retorna a quantidade das vogais em um texto digitado 
+        /// </summary>
+        private static void Ex07Ver01()
         {
   
             Console.Write("Escreva alguma coisa : ");
             string frase = Console.ReadLine().ToLower();
+            DateTime tempoComeco = DateTime.Now; 
 
-            var fraseLength = frase.Length;
             string buscaVogal = "aeiou";
             int contaA = 0;
             int contaE = 0;
@@ -128,6 +136,9 @@ namespace ExerciciosAula5
             Console.WriteLine($"Quantidade de I : {contaI}");
             Console.WriteLine($"Quantidade de O : {contaO}");
             Console.WriteLine($"Quantidade de U : {contaU}");
+
+            Console.WriteLine(DateTime.Now - tempoComeco);
+
             Console.ReadKey();
         } 
     }

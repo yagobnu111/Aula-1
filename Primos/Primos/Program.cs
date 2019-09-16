@@ -10,63 +10,38 @@ namespace Primos
     {
         static void Main(string[] args)
         {
-
-            /*int n, i, m;
-            int flag;
-            List<int> listaPrimos = new List<int> { };
-
-            for (i = 2; i <= 10; i++)
-            {
-                m = i / 2;
-                flag = 0;
-
-                for (n = 2; n <= m; n++)
-                {
-
-                    if (i % n == 0)
-                    {
-                        flag = 1;
-                    }
-                }
-
-                if (flag == 1)
-                {
-                    Console.WriteLine($"{i} não é primo");
-                }
-                else
-                {
-                    Console.WriteLine($"{i} é primo ");
-                }
-            }
-
-            Console.ReadKey();*/
-            PrimosWhile();
+            PrimosFor();
             Console.ReadKey();
         }
 
-        static void PrimosWhile()
+        static void PrimosFor()
         {
             var n = 0;
             var divisor = 0;
+            var x = 2;
+
             List<string> listaPrimos = new List<string> { };
+
 
             Console.WriteLine("Até que número checar por números primos ? ");
             n = (Convert.ToInt32(Console.ReadLine()));
+            DateTime agora = DateTime.Now;
 
-            for (int i = 3; i <= n; i++)
+            for (int i = 2; i <= n; i++)
             {
                 divisor = i / 2;
-                var naoPrimo = false;
+                var flag = 0;
 
-                for (int x = 3; x <= divisor; x++)
+                for (; x <= divisor; x++)
                 {
+
                     if (i % x == 0)
-                    {
-                        naoPrimo = true;                  
-                    }
+                        flag = 1;
+                    else
+                        continue;
 
                 }   
-                if (naoPrimo == false) 
+                if (flag == 0) 
                 {
                     listaPrimos.Add(i.ToString());
                 }
@@ -79,6 +54,56 @@ namespace Primos
             {
                 Console.WriteLine($"{y}° {listaPrimos[y-1]}");
             }
+
+            Console.WriteLine(agora - DateTime.Now);
+        }
+        static void PrimosWhile()
+        {
+            var n = 0;
+            var divisor = 0;
+            var x = 3;
+            var i = 3;
+
+            List<string> listaPrimos = new List<string> { };
+
+            Console.WriteLine("Até que número checar por números primos ? ");
+            n = (Convert.ToInt32(Console.ReadLine()));
+
+            DateTime agora = DateTime.Now;
+
+            while( i <= n )
+            {
+                divisor = i / 2;
+                var naoPrimo = false;
+           
+
+
+               while(x <= divisor)
+                {
+                    if (i % x == 0)
+                    {
+                        naoPrimo = true;
+                    }
+                    x++;
+
+                }
+                if (naoPrimo == false)
+                {
+                    listaPrimos.Add(i.ToString());
+                }
+
+                i++;
+
+            }
+
+            Console.WriteLine($"Esses são os números primos de 0 a {n}");
+
+            for (int y = 1; y < (listaPrimos.Count +1); y++)
+            {
+                Console.WriteLine($"{y}° {listaPrimos[y-1]}");
+            }
+
+    
         }
     }
 }
