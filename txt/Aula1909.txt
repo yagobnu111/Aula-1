@@ -1,0 +1,53 @@
+certificação microsoft 10% de aumento
+
+byte = 0>255
+int16 = -32767
+int32 = 2147483647
+
+TryParse
+
+int.TryParse("42", out resultadoConversao);
+Além de fazer a conversão retorna true or false 
+
+
+linguagem compilada = só executa se estiver tudo certo
+linguagem interpretada = executa até dar um problema
+
+
+variaveis passadas por parametro são sempre cópias
+       
+	 {
+            int ii = 30;
+            HebeFicar(ii);
+            Console.WriteLine(ii);
+
+        }
+
+        static void HebeFicar(int idade)
+        {
+            idade = 16000;
+        }
+
+para que ii seja realmente alterada usamos ref ou out
+
+        {
+            int ii = 30;
+            HebeFicar(ref ii);
+            Console.WriteLine(ii);
+
+        }
+
+        static void HebeFicar(ref int idade)
+        {
+            idade = 16000;
+        }
+
+
+quando se passa um parametro e esse parametro é uma classe a passagem é uma referência, ou seja, alterar o valor de um afeta a instância do outro.
+
+conhecer as classes 
+
+expressão lambda = um atalho para usar mais especificamente em listas, permite que em uma linha você faça um loop
+
+
+lambdas para decorar = Where/OrderBy/FirstOrDefault
