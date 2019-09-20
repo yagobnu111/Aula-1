@@ -26,3 +26,7 @@ Objeto Complexo
         public DateTime DataAlteracao { get; set; }
 
     }
+
+
+DevOPS - começar por aqui
+Cerfiticações90 microsoft = https://www.microsoft.com/en-us/learning/exam-list.aspx 
