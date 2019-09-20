@@ -1,0 +1,28 @@
+Regras de negócio
+
+Controlador de fluxo
+
+métodos recursivos // não se usa para controlar fluxo da aplicação
+
+informação criticas/importantes do sistema devem receber 
+
+Ativo
+Criacao
+Alteracao
+DataCriacao
+DataAlteracao
+
+Objeto Complexo
+
+  public class Usuarios
+    {
+        public int Id { get; set; }
+        public string Login { get; set; }
+        public string Senha { get; set; }
+        public bool Ativo { get; set; }
+        public int UsuarioCriacao { get; set; }
+        public int UsuarioAlteracao { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public DateTime DataAlteracao { get; set; }
+
+    }
