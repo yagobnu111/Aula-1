@@ -11,7 +11,8 @@ namespace LocacaoBiblioteca.Controller
 /// </summary>
     public class UsuariosController
     {
-        public List<Usuario> Usuarios = new List<Usuario>();
+        private int contID = 0;
+        private List<Usuario> ListaDeUsuarios = new List<Usuario>();
         /// <summary>
         /// Método que realiza login dentro do nosso sistema
         /// Para realizar o login padrão use :
@@ -22,17 +23,19 @@ namespace LocacaoBiblioteca.Controller
         /// <returns>Retorna verdadeiro quando existir o usuário com este login e senha</returns>
         public UsuariosController()
         {
-            Usuarios = new List<Usuario>();
+            ListaDeUsuarios = new List<Usuario>();
 
-            Usuarios.Add(new Usuario()
+            ListaDeUsuarios.Add(new Usuario()
             {
+                Id = contID++,
                 Login = "Admin",
                 Senha = "Admin"
                 
             });
 
-            Usuarios.Add(new Usuario()
+            ListaDeUsuarios.Add(new Usuario()
             {
+                Id = contID++,
                 Login = "Yago",
                 Senha = "blablabla"
             });
@@ -43,7 +46,7 @@ namespace LocacaoBiblioteca.Controller
         public bool LoginSistema(Usuario usuarios)
         {
             //.Exists verifica se aquilo existe dentro da lista , se sim retorna True se não False
-            return Usuarios.Exists(i => usuarios.Login == i.Login && usuarios.Senha == i.Senha);
+            return ListaDeUsuarios.Exists(i => usuarios.Login == i.Login && usuarios.Senha == i.Senha);
 
 
             /*foreach (var i in Usuarios)
@@ -55,6 +58,40 @@ namespace LocacaoBiblioteca.Controller
             }*/
      
 
+        }
+        public void AdicionarUsuario(Usuario parametroUsuario)
+        {
+            contID++;
+            parametroUsuario.Id = contID;
+            ListaDeUsuarios.Add(parametroUsuario);
+        }
+        /// <summary>
+        /// Metodo que desativa um registro de usuario cadastrado em nossa lista
+        /// </summary>
+        /// <param name="idRemove">Parametro que identifica o usuario que será desativado</param>
+        public void RemoverUsuarioPorId(int idRemove)
+        {
+            //aqui é usado o método FirstOrDefault para localizar nosso usuario dentro da lista
+            //com isso conseguimos acessar as propriedades dele e desativar o registro
+            ListaDeUsuarios.FirstOrDefault(x => x.Id == idRemove).Ativo = false;
+            
+            
+            
+            /* foreach (var i in Usuarios)
+            {
+                if (i.Id == idRemove)
+                {
+                    Usuarios.Remove(i);
+                    Console.WriteLine("Usuário removido com sucesso! Aperte qualquer tecla para voltar ao menu ");
+                    break;
+                }
+            }*/
+                
+        }
+        public List<Usuario> RetornaListaDeUsuarios()
+        {
+            //retorna agora somente a lista com usuarios ativos usando "Where(x => x.Ativo)"
+            return ListaDeUsuarios.Where(x => x.Ativo).ToList<Usuario>();
         }
     }
 }

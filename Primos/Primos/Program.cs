@@ -10,7 +10,7 @@ namespace Primos
     {
         static void Main(string[] args)
         {
-            PrimosFor();
+            PrimosWhile();
             Console.ReadKey();
         }
 
