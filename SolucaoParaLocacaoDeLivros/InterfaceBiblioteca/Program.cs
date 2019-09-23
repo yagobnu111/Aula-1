@@ -42,9 +42,11 @@ namespace InterfaceBiblioteca
                 {
                     case '1':
                         MostrarUsuarios();
+                        Console.ReadKey(true);
                         break;
                     case '2':
                         MostrarLivro();
+                        Console.ReadKey(true);
                         break;
                     case '0':
                         Console.WriteLine("Saindo...");
@@ -106,7 +108,6 @@ namespace InterfaceBiblioteca
         {
             Console.Clear();
             livros.RetornaListaDeLivros().ForEach(i => Console.WriteLine($"ID : {i.Id} Nome do livro : {i.Nome}"));
-            Console.ReadKey();
 
         }
         /// <summary>
@@ -117,7 +118,6 @@ namespace InterfaceBiblioteca
 
             Console.Clear();
             usuarioController.RetornaListaDeUsuarios().ForEach(i => Console.WriteLine($"ID : {i.Id} Usuário : {i.Login} "));
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -177,10 +177,10 @@ namespace InterfaceBiblioteca
         {
  
             MostrarUsuarios();
-            Console.Write("Informe o ID do usuario a ser removido");
+            Console.Write("Informe o ID do usuario a ser removido: ");
             var idRemove = int.Parse(Console.ReadLine());
             usuarioController.RemoverUsuarioPorId(idRemove);
-            Console.WriteLine("Aperte qualquer tecla para voltar ao menu");
+            Console.WriteLine("Usuario removido com sucesso! ");
             Console.ReadKey(true);
             MostraMenuSistema();
         }

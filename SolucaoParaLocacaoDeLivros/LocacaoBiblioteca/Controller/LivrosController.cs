@@ -13,7 +13,7 @@ namespace LocacaoBiblioteca.Controller
         /// Método construtor que prepara o terreopara já iniciar com livros pré cadastrados
         /// </summary>
         private List<Livro> ListaDeLivros { get; set; }
-        private int contId = 0;
+        private int contId = 1;
 
         public LivrosController()//construtor, sempre tem o nome da classe
         {
@@ -44,8 +44,8 @@ namespace LocacaoBiblioteca.Controller
         /// <param name="parametroLivro">Informações do livro que vamos adicionar </param>
         public void AdicionarLivro(Livro parametroLivro)
         {
-            contId++;
             parametroLivro.Id = contId;
+            contId++;
             ListaDeLivros.Add(parametroLivro);
         }
         public List<Livro> RetornaListaDeLivros()
