@@ -12,13 +12,16 @@ namespace InterfaceBiblioteca
     class Program
     {
         //instanciamos (Carregamos para memória) nosso controlador dos livros
-        static LivrosController livros = new LivrosController();
+        static LivrosController livrosController = new LivrosController();
         //instanciamos (Carregamos para memória) nosso controlador dos usuarios
         static UsuariosController usuarioController = new UsuariosController();
+
         static void Main(string[] args)
         {
             TelaInicial();
         }
+       
+        #region Métodos do programa
         /// <summary>
         /// Mostra no console o menu do sistema
         /// </summary>
@@ -34,8 +37,8 @@ namespace InterfaceBiblioteca
                 Console.WriteLine("0 - Sair");
                 Console.WriteLine("1 - Listar usuários, 2 - Listar livros");
                 Console.WriteLine("3 - Cadastrar livros, 4 - Cadastrar Usuario");
-                Console.WriteLine("5 - Remover Usuário");
-                Console.WriteLine("6 - Logoff");
+                Console.WriteLine("5 - Remover Usuário, 6 - Remover Livro");
+                Console.WriteLine("7 - Logoff");
                 choice = Console.ReadKey(true).KeyChar;
 
                 switch (choice)
@@ -56,7 +59,7 @@ namespace InterfaceBiblioteca
                     case '3':
                         CadastroDeLivros();
                         break;
-                    case '6':
+                    case '7':
                         Console.WriteLine("Logging off");
                         Thread.Sleep(1000);
                         TelaInicial();
@@ -66,6 +69,9 @@ namespace InterfaceBiblioteca
                         break;
                     case '5':
                         RemoveUsuario();
+                        break;
+                    case '6':
+                        RemoveLivro();
                         break;
                     default:
                         Console.WriteLine("I don't understand bro ");
@@ -107,8 +113,7 @@ namespace InterfaceBiblioteca
         private static void MostrarLivro()
         {
             Console.Clear();
-            livros.RetornaListaDeLivros().ForEach(i => Console.WriteLine($"ID : {i.Id} Nome do livro : {i.Nome}"));
-
+            livrosController.RetornaListaDeLivros().ForEach(i => Console.WriteLine($"ID : {i.Id} Nome do livro : {i.Nome}"));
         }
         /// <summary>
         /// Metodo que retorna os usuários cadastrados
@@ -119,7 +124,6 @@ namespace InterfaceBiblioteca
             Console.Clear();
             usuarioController.RetornaListaDeUsuarios().ForEach(i => Console.WriteLine($"ID : {i.Id} Usuário : {i.Login} "));
         }
-
         /// <summary>
         /// Faz um cadastro de novos livros no sistema
         /// </summary>
@@ -132,7 +136,7 @@ namespace InterfaceBiblioteca
                 Console.WriteLine("Cadastrar livro dentro do sistema: ");
                 var nomeDoLivro = Console.ReadLine();
                 // livros é o objeto em memória, nele há disponível ferramentas para realizar tarefas como adicionar livros
-                livros.AdicionarLivro(new Livro()
+                livrosController.AdicionarLivro(new Livro()
                 {
                     Nome = nomeDoLivro
                     
@@ -184,7 +188,19 @@ namespace InterfaceBiblioteca
             Console.ReadKey(true);
             MostraMenuSistema();
         }
-                
+        /// <summary>
+        /// Método que remove um livro cadastrado com base no ID
+        /// </summary>
+        private static void RemoveLivro()
+        {
+            MostrarLivro();
+            Console.Write("Informe o ID do livro a ser removido: ");
+            var idRemove = int.Parse(Console.ReadLine());
+            livrosController.RemoverLivroPorId(idRemove);
+            Console.WriteLine("Livro removido com sucesso! ");
+            Console.ReadKey(true);
+            MostraMenuSistema();
+        }
         /// <summary>
         /// Apresenta uma tela inicial antes do login ser feito
         /// </summary>
@@ -200,5 +216,6 @@ namespace InterfaceBiblioteca
 
             MostraMenuSistema();
         }
+        #endregion
     }
 }

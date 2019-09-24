@@ -1,4 +1,5 @@
-﻿using LocacaoBiblioteca.Model;
+﻿using LocacaoBiblioteca.Controller;
+using LocacaoBiblioteca.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,49 +10,36 @@ namespace LocacaoBiblioteca.Controller
 {
     public class LivrosController
     {
+        // carregando o banco de dados da classe locacaoContext
+        private LocacaoContext contextDB = new LocacaoContext();
+
+        #region Métodos para manipulação de livros
         /// <summary>
-        /// Método construtor que prepara o terreopara já iniciar com livros pré cadastrados
+        /// Método que adiciona um livro à lista 
         /// </summary>
-        private List<Livro> ListaDeLivros { get; set; }
-        private int contId = 1;
-
-        public LivrosController()//construtor, sempre tem o nome da classe
-        {
-            ListaDeLivros = new List<Livro>();
-
-            ListaDeLivros.Add(new Livro()
-            {
-                Id = contId++,
-                Nome = "Senhor dos anéis",
-
-            });
-
-            ListaDeLivros.Add(new Livro()
-            {
-                Id = contId++,
-                Nome = "O nome do vento"
-            });
-
-            ListaDeLivros.Add(new Livro()
-            {
-                Id = contId++,
-                Nome = "Can't hurt me"
-            });
-        }
-        /// <summary>
-        /// Método que adiciona o livro em nossa lista já "instanciada" criada dentro do construtor
-        /// </summary>
-        /// <param name="parametroLivro">Informações do livro que vamos adicionar </param>
+        /// <param name="parametroLivro">Recebe Nome do livro</param>
         public void AdicionarLivro(Livro parametroLivro)
         {
-            parametroLivro.Id = contId;
-            contId++;
-            ListaDeLivros.Add(parametroLivro);
+            parametroLivro.Id = contextDB.contIdLivros++;
+            contextDB.ListaDeLivros.Add(parametroLivro);
+        }   
+        /// <summary>
+        /// Método que muda o valor de ativo para falso de um livro 
+        /// </summary>
+        /// <param name="idRemove">Recebe o Id do livro</param>
+        public void RemoverLivroPorId(int idRemove)
+        {
+            contextDB.ListaDeLivros.FirstOrDefault(x => x.Id == idRemove).Ativo = false;
+                
         }
+        /// <summary>
+        /// Método que retorna os livros ativos na lista
+        /// </summary>
+        /// <returns>Retorna uma lista com livros ativos</returns>
         public List<Livro> RetornaListaDeLivros()
         {
-            return ListaDeLivros;
+            return contextDB.ListaDeLivros.Where(x => x.Ativo).ToList<Livro>();
         }
-       
+        #endregion
     }
 }

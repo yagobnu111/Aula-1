@@ -11,59 +11,29 @@ namespace LocacaoBiblioteca.Controller
 /// </summary>
     public class UsuariosController
     {
-        private int contID = 0;
-        private List<Usuario> ListaDeUsuarios = new List<Usuario>();
+        //Carregando banco de dados da classe locacaoContext
+        private LocacaoContext contextDB = new LocacaoContext();
+
+        #region Métodos pala manipulação de usuários
         /// <summary>
-        /// Método que realiza login dentro do nosso sistema
-        /// Para realizar o login padrão use :
-        /// Login : Admin
-        /// Senha : Admin
+        /// Método que verifica se o login e senha passados estão na lista de usuários
         /// </summary>
-        /// <param name="Usuario">Passamos um objeto de nome Usuario como parâmetro</param>
-        /// <returns>Retorna verdadeiro quando existir o usuário com este login e senha</returns>
-        public UsuariosController()
-        {
-            ListaDeUsuarios = new List<Usuario>();
-
-            ListaDeUsuarios.Add(new Usuario()
-            {
-                Id = contID++,
-                Login = "Admin",
-                Senha = "Admin"
-                
-            });
-
-            ListaDeUsuarios.Add(new Usuario()
-            {
-                Id = contID++,
-                Login = "Yago",
-                Senha = "blablabla"
-            });
-
-        }
-
-
+        /// <param name="usuarios">Recebe Usuario e Senha</param>
+        /// <returns>se as informações estiverem corretas, retorna (true) do contrário (false)</returns>
         public bool LoginSistema(Usuario usuarios)
         {
             //.Exists verifica se aquilo existe dentro da lista , se sim retorna True se não False
-            return ListaDeUsuarios.Exists(i => usuarios.Login == i.Login && usuarios.Senha == i.Senha);
-
-
-            /*foreach (var i in Usuarios)
-            {
-                if (i.Login == usuarios.Login && i.Senha == usuarios.Senha)
-                {
-                    return true;
-                }
-            }*/
-     
+            return contextDB.ListaDeUsuarios.Exists(i => usuarios.Login == i.Login && usuarios.Senha == i.Senha);
 
         }
+        /// <summary>
+        /// Método que adiciona um usuário à lista de usuários
+        /// </summary>
+        /// <param name="parametroUsuario">Recebe usuário e login</param>
         public void AdicionarUsuario(Usuario parametroUsuario)
         {
-            contID++;
-            parametroUsuario.Id = contID;
-            ListaDeUsuarios.Add(parametroUsuario);
+            parametroUsuario.Id = contextDB.contIdUsuarios++;
+            contextDB.ListaDeUsuarios.Add(parametroUsuario);
         }
         /// <summary>
         /// Metodo que desativa um registro de usuario cadastrado em nossa lista
@@ -73,25 +43,18 @@ namespace LocacaoBiblioteca.Controller
         {
             //aqui é usado o método FirstOrDefault para localizar nosso usuario dentro da lista
             //com isso conseguimos acessar as propriedades dele e desativar o registro
-            ListaDeUsuarios.FirstOrDefault(x => x.Id == idRemove).Ativo = false;
-            
-            
-            
-            /* foreach (var i in Usuarios)
-            {
-                if (i.Id == idRemove)
-                {
-                    Usuarios.Remove(i);
-                    Console.WriteLine("Usuário removido com sucesso! Aperte qualquer tecla para voltar ao menu ");
-                    break;
-                }
-            }*/
-                
+            contextDB.ListaDeUsuarios.FirstOrDefault(x => x.Id == idRemove).Ativo = false;
+    
         }
+        /// <summary>
+        /// Método que retorna uma lista com usuários ativos
+        /// </summary>
+        /// <returns>lista de usuários ativos no sistema</returns>
         public List<Usuario> RetornaListaDeUsuarios()
         {
             //retorna agora somente a lista com usuarios ativos usando "Where(x => x.Ativo)"
-            return ListaDeUsuarios.Where(x => x.Ativo).ToList<Usuario>();
+            return contextDB.ListaDeUsuarios.Where(x => x.Ativo).ToList<Usuario>();
         }
+        #endregion
     }
 }
