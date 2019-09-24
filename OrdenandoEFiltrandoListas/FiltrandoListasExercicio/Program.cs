@@ -8,9 +8,11 @@ namespace FiltrandoListasExercicio
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            var listaPessoas = new List<Pessoa>();
+            #region Carregando a lista com as informações
+            var listaPessoas= new List<Pessoa>();
             var inf = @"1,Spears,07/11/2004,846.96;
 2,Swanson,20/06/2003,233.09;
 3,Gay,03/12/2001,911.92;
@@ -58,39 +60,97 @@ namespace FiltrandoListasExercicio
 
 
             }
+            #endregion
 
-            Console.WriteLine("---------------------Lista Por ID----------------------------\n");
-            listaPessoas.ForEach(i => Console.WriteLine($"Id: {i.Id} Nome: {i.Nome} Data: {i.DataNascimento.ToString("dd:MM:yyyy")} Carteira: {i.Carteira}"));
-            
-            
-            Console.WriteLine("---------------------Lista por Nome--------------------------\n");
-            //ordenando pelo nome e convertendo em uma lista
-            List<Pessoa> listaPorNome = listaPessoas.OrderBy(x => x.Nome).ToList();
-            //listando essa lista ordenada
-            listaPorNome.ForEach(i => Console.WriteLine($"Id: {i.Id} Nome: {i.Nome} Data: {i.DataNascimento.ToString("dd:MM:yyyy")} Carteira: {i.Carteira}"));
+            MostraListaPorId(listaPessoas);
+            MostraListaCrescentePorNome(listaPessoas);
+            MostraListaDecrescentePorData(listaPessoas);
+            MostraListaPorCarteiraMaiorQue(listaPessoas);
+            MostraListaPorMaioresQue(listaPessoas, 16);
+            MostraListaPorMenoresQue(listaPessoas, 12);
 
-
-
-            Console.WriteLine("---------------------Lista por Data Nasc--------------------------\n");
-            List<Pessoa> listaPorData = listaPessoas.OrderByDescending(x => x.DataNascimento).ToList();
-            listaPorNome.ForEach(i => Console.WriteLine($"Id: {i.Id} Nome: {i.Nome} Data: {i.DataNascimento.ToString("dd:MM:yyyy")} Carteira: {i.Carteira}"));
-
-            Console.WriteLine("---------------------Lista de Ricos------------------------------\n");
-            List<Pessoa> listaPorCarteira = listaPessoas.Where(x => x.Carteira > 500.00).ToList();
-            listaPorCarteira.ForEach(i => Console.WriteLine($"Id: {i.Id} Nome: {i.Nome} Data: {i.DataNascimento.ToString("dd:MM:yyyy")} Carteira: {i.Carteira}"));
-
-            Console.WriteLine("--------------------Lista 18+ -----------------------------------\n");
-            List<Pessoa> listaPorMaiores18 = listaPessoas.Where(x => DateTime.Now.Year - x.DataNascimento.Year >= 18).ToList();
-            listaPorMaiores18.ForEach(i => Console.WriteLine($"Id: {i.Id} Nome: {i.Nome} Data: {i.DataNascimento.ToString("dd:MM:yyyy")} Carteira: {i.Carteira}"));
-
-            Console.WriteLine("--------------------Lista 16- -----------------------------------\n");
-            List<Pessoa> listaPorMenores18 = listaPessoas.Where(x => DateTime.Now.Year - x.DataNascimento.Year <= 16).ToList();
-            listaPorMenores18.ForEach(i => Console.WriteLine($"Id: {i.Id} Nome: {i.Nome} Data: {i.DataNascimento.ToString("dd:MM:yyyy")} Carteira: {i.Carteira}"));
-
-
-            Console.ReadLine();
+            Console.ReadKey(true);
  
         }
+        /// <summary>
+        /// Método que define um template para a impressão de informações passadas
+        /// </summary>
+        /// <param name="pessoa">Recebe informações da pessoa informada</param>
+        public static void ImprimeInformacao(Pessoa pessoa)
+        {
+            string template = "ID {0,3} Nome {1,10} Nascimento {2,10} Carteira {3,5} ";
 
+            string textoFormatado = string.Format(template, pessoa.Id, pessoa.Nome, pessoa.DataNascimento.ToShortDateString(), pessoa.Carteira.ToString("C"));
+
+            Console.WriteLine(textoFormatado);
+        }
+        /// <summary>
+        /// Método que retorna a lista de acordo com a ID em ordem ascendente
+        /// </summary>
+        /// <param name="listaPessoas">Recebe a lista de pessoas criada</param>
+        public static void MostraListaPorId(List <Pessoa> listaPessoas)
+        {
+            MostraIdentificador("Lista por ID");
+            listaPessoas.ForEach(i => ImprimeInformacao(i));
+        }
+        /// <summary>
+        /// Método que retorna a lista em ordem alfabética por nome
+        /// </summary>
+        /// <param name="listaPessoas">Recebe a lista de pessoas criada</param>
+        private static void MostraListaCrescentePorNome(List<Pessoa> listaPessoas)
+        {
+            MostraIdentificador("Lista por ordem alfabética");
+            listaPessoas.OrderBy(x => x.Nome).ToList().ForEach(i => ImprimeInformacao(i));
+        }
+        /// <summary>
+        /// Método que retorna a lista pela data em ordem decrescente
+        /// </summary>
+        /// <param name="listaPessoas">recebe a lista informada</param>
+        private static void MostraListaDecrescentePorData(List<Pessoa> listaPessoas)
+        {
+            MostraIdentificador("Lista Data Decrescente");
+            //ordenando pelo nome e convertendo em uma lista
+            //listando essa lista ordenada
+            listaPessoas.OrderByDescending(x => x.DataNascimento).ToList().ForEach(i => ImprimeInformacao(i));
+        }
+        /// <summary>
+        /// Método que retorna a lista pela quantidade de dinheiro na carteira informado ou default
+        /// </summary>
+        /// <param name="listaPessoas">Lista Informada</param>
+        /// <param name="valor">O valor default é 500</param>
+        private static void MostraListaPorCarteiraMaiorQue(List<Pessoa> listaPessoas, double valor = 500)
+        {
+            MostraIdentificador("Lista de Ricos");
+            listaPessoas.FindAll(x => x.Carteira > valor).ToList().ForEach(i => ImprimeInformacao(i));
+        }
+        /// <summary>
+        /// Método que retorna a lista por maiores que idade definida ou default 
+        /// </summary>
+        /// <param name="idade">Idade default = 18 </param>
+        /// <param name="listaPessoas">Lista Informada</param>
+        private static void MostraListaPorMaioresQue(List<Pessoa> listaPessoas, int idade = 18)
+        {
+            MostraIdentificador($"Lista maiores que {idade}");
+            listaPessoas.FindAll(x => DateTime.Now.Year - x.DataNascimento.Year >= idade).ToList().ForEach(i => ImprimeInformacao(i));
+        }
+        /// <summary>
+        /// Método que retorna a lista por menores que uma idade definida ou default 
+        /// </summary>
+        /// <param name="idade">Idade default = 16</param>
+        /// <param name="listaPessoas"></param>
+        private static void MostraListaPorMenoresQue(List<Pessoa> listaPessoas, int idade = 16)
+        {
+            MostraIdentificador($"Lista Menores que {idade}");
+            listaPessoas.FindAll(x => DateTime.Now.Year - x.DataNascimento.Year <= idade).ToList().ForEach(i => ImprimeInformacao(i));
+
+        }
+        /// <summary>
+        /// Define um template para o identificador de cada filtro
+        /// </summary>
+        /// <param name="msg">Recebe uma string que identifica o filtro</param>
+        private static void MostraIdentificador(string msg)
+        {
+            Console.WriteLine("\n------------------------{0,10}-------------------------\n", msg);
+        } 
     }
 }
