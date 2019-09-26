@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D611565F-C3AC-4EA6-A2A7-E194C91848E0}</ProjectGuid>
+    <ProjectGuid>{42B9454E-6595-481F-9141-623D127B69DF}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RelatorioInformacoes</RootNamespace>
-    <AssemblyName>RelatorioInformacoes</AssemblyName>
+    <RootNamespace>ListarCarrosDoAmigo</RootNamespace>
+    <AssemblyName>ListarCarrosDoAmigo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ListagemDeCarros">
+      <HintPath>\\svprwy001\alunos\hbsis\DllsComComentarios\19\ListagemDeCarros.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,15 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\CarrosController.cs" />
-    <Compile Include="Model\Carro.cs" />
-    <Compile Include="Model\InformacoesContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
