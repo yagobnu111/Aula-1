@@ -20,11 +20,11 @@ namespace InterfaceRelatorio
         {
             char choice = '0';
 
-            while (choice != '3')
+            while (choice != '4')
             {
                 Console.Clear();
                 Console.WriteLine("---------------Sistema de relatório de vendas------------------------------------------");
-                Console.WriteLine("\nDigite 1 - Mostrar todos os períodos  2 - Pesquisar por mês 3 - Sair");
+                Console.WriteLine("\nDigite 1 - Mostrar todos os períodos  2 - Pesquisar por mês 3 - Adicionar Relatorio 4 - Sair");
                 choice = Console.ReadKey(true).KeyChar;
                 switch (choice)
                 {
@@ -36,6 +36,9 @@ namespace InterfaceRelatorio
                         EscolheMes();
                         break;
                     case '3':
+                        AdicionaRelatorioVendas();
+                        break;
+                    case '4':
                         Console.WriteLine("Saindo...");
                         Thread.Sleep(500);
                         Environment.Exit(0);
@@ -46,6 +49,10 @@ namespace InterfaceRelatorio
                 }
                 Console.ReadKey(true);
             }
+        }
+        public static void AdicionaRelatorioVendas()
+        {
+            Console.WriteLine("Essa função ainda não foi adicionada!");
         }
         public static void EscolheMes()
         {

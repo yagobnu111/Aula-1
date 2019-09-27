@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BD73C43C-4A68-47E7-9F65-664019D86C14}</ProjectGuid>
+    <ProjectGuid>{79C9557E-4649-48A2-8F47-E199215C9DC0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ReviewFor</RootNamespace>
-    <AssemblyName>ReviewFor</AssemblyName>
+    <RootNamespace>TesteCerveja</RootNamespace>
+    <AssemblyName>TesteCerveja</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ListagemDeCervejas\ListagemDeCervejas.csproj">
+      <Project>{C2164524-6854-4E7C-B4EA-1D25C0FF6C8E}</Project>
+      <Name>ListagemDeCervejas</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
