@@ -1,0 +1,10 @@
+Id x Codigo
+
+id é instavel, podemos perder as referências de Id
+Codigo não vai mudar
+
+
+
+é melhor haver mais tabelas com menos informações em cada do que menos tabelas e mais informações em cada
+
+foreign key - garante a integridade dos dados?

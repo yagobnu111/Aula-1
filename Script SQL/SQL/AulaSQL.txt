@@ -1,0 +1,69 @@
+DBA = gerencia os bancos de dados, ganha muito, trabalha muito
+
+Banco de dados 
+
+ANSI = comandos para qualquer SQL
+
+SQL/ Transact-SQL
+
+
+Padrões SQL
+
+-DDL (Linguagem de definição de dados) Altera a estrutura do banco
+*Create
+	Ex:
+	create table tabela1
+	(
+   		Id int,
+   		Nome varchar(50)
+	)
+
+*Alter
+altera a tabela
+
+*Drop
+(Não usar, deleta a tabela para sempre)		
+
+-DML (linguagem de manipulação de dados) Altera os dados da tabela
+*Select
+
+select * from ______
+
+*Insert
+
+insert into Table (coluna)
+values (valor)
+
+
+*Update
+
+Altera os dados da tabela
+
+Update Tabela 
+set Nome = ''
+where Id = 2
+
+*Delete
+
+-DCL (Linguagem de controle de dados)
+-DTL (Linguagem de transação de dados)
+-DQL (Linguagem de consulta de dados)
+
+Tipos de dados
+
+-Excel?
+-Tabela
+-Schemas - estrutura e conjunto de tabelas de dados
+
+
+SGBD (Sistema de gestão de base de dados)
+
+
+
+Primary key - informação única, ex: Id
+
+IDENTITY(1,1) = COMANDO PARA COMEÇAR O ID DO 1 E INCREMENTAR DE 1 EM 1
+
+Cluster - organizar as informações de maneira a ser mais fácil achá-las
+
+* importante abrir novas querys para não perder as antigas

@@ -1,0 +1,16 @@
+http://dontpad.com/turmacsharp19/09/exercicios
+
+2 - Vamos criar com base da estrutura  mostrada logo a  baixo 
+em uma nova base com nome de "SistemaRH" essa base terá a seguinte estrutura
+
+Tabela de Salarios 
+    Id,Funcionario,Valor, informações de controle...
+Tabela de Funcionarios
+    Id,Nome,DataInicio,DataSaida, informações de controle...
+
+2.1 - Vamos cadastrar 3 funcionários dentro de nossa tabela de Funcionarios
+2.2 - Temos que inserir  para cada funcionário as folhas de pagamento dos 
+respectivos meses de trabalho deste ano 7,8,9  sabendo que os salarios 
+sempre são pagos no 5 dia útil de cada mês
+
+

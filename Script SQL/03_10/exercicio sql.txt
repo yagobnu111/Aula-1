@@ -1,0 +1,52 @@
+1- Realizar um update das informações que contem usuario de criação 0 para o Id do usuario Felipe ok
+
+2 -Trazer somente as marcas que Felipe cadastrou ok
+
+3 -Trazer somente as marcas que Giomar cadastrou ok
+
+1 - Trazer somente a quantidade de marcas que Felipe cadastrou do maior para menor "colocar o order by desc   no final do select só isso "
+Trazer somente a quantidade de marcas que Giomar cadastrou do menor para maior ok
+
+Trazer somente a quantidade de marcas que Felipe e Giomar cadastraram ok
+
+Trazer somente os carros que Felipe cadastrou ok
+Trazer somente os carros que Giomar cadastrou ok
+
+Trazer somente a quantidade de carros que Felipe cadastrou maior para menor ok
+Trazer somente a quantidade de carros que Giomar cadastrou menor para maior ok
+
+Trazer somente a quantidade de carros que Felipe e Giomar cadastraram ok
+
+Trazer somente os carros das marcas que Felipe cadastrou ok
+Trazer somente os carros das marcas que Giomar cadastrou ok
+
+Trazer somente a quantidade de carros das marcas que Felipe cadastrou maior para menor ok
+Trazer somente a quantidade de carros das marcas que Giomar cadastrou menor para maior ok
+
+Trazer o valor total de vendas 2019 isolado ok
+Trazer a quantidade total de vendas 2019 isolado ok
+
+Trazer o valor total de vendas em cada ano e ordenar do maior para o menor ok	
+Trazer a quantidade de vendas em cada ano e ordenar do maior para o menor ok
+
+Trazer o mês de cada ano que retornou a maior quantidade de vendas ok
+		- Tradução "Retornar agrupado por mês e ordenar do maior para menor"
+		
+Trazer o mês de cada ano que retornou o maior valor de vendas ok
+		- Tradução "Retornar agrupado por mês e ordenar do maior para menor"
+
+Trazer o valor total de vendas que Felipe realizou ok
+Trazer o valor total de vendas que Giomar realizou ok
+
+Trazer a quantidade total de vendas que Felipe realizou ok
+Trazer a quantidade de vendas que Giomar realizou ok
+
+Trazer a quantidade total de vendas que Felipe e Giomar realizaram ordenando do maior para menor
+Trazer o valor de vendas que Felipe e Giomar realizaram ordenando do maior para menor
+
+Trazer  a marca mais vendida de todos os anos
+		- Tradução "Retornar todas as marcas que foram vendidas mas ordernada da maior para menor"
+Trazer o valor total da marca mais vendida de todos os anos		
+	
+Trazer a quantidade do carro mais vendido de todos os anos
+Trazer o valor do carro mais vendido de todos os anos
