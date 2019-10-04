@@ -4,3 +4,5 @@ fun.Nome,
 sal.Valor,
 convert(varchar(10), sal.DataCriacao, 103) as 'Data depósito' -- converte a data para formato brasileiro dd/MM/YYYY
 from Salarios sal inner join Funcionarios fun on sal.FuncionarioId = fun.Id 
+
+group by // ver
