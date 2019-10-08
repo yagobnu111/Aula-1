@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PudimSolution", "CodeFirstTeste\PudimSolution.csproj", "{92B7F586-BBB8-4CA7-9D90-F50EE4798CE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GambCodeFirst", "GambCodeFirst\GambCodeFirst.csproj", "{7B410EEE-DB1C-4A65-A189-30173A1C2A18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92B7F586-BBB8-4CA7-9D90-F50EE4798CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92B7F586-BBB8-4CA7-9D90-F50EE4798CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92B7F586-BBB8-4CA7-9D90-F50EE4798CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92B7F586-BBB8-4CA7-9D90-F50EE4798CE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B410EEE-DB1C-4A65-A189-30173A1C2A18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B410EEE-DB1C-4A65-A189-30173A1C2A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B410EEE-DB1C-4A65-A189-30173A1C2A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B410EEE-DB1C-4A65-A189-30173A1C2A18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3338738-66BD-4BFE-85C5-B1B5E76E89DD}
+	EndGlobalSection
+EndGlobal

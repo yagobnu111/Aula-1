@@ -1,0 +1,8 @@
+IQueryable faz a query no banco?
+
+replicando a estrutura de um banco existente e criando automaticamente as classes
+clique dedo direito projeto -> add -> item -> data -> ado.net entity data model -> code first from database 
+-> new connection -> server name = (localdb)\MSSQLLocalDB -> select or enter a database name -> escolher a database
+-> next -> marcar tables e pluralize -> finish
+
+ 
