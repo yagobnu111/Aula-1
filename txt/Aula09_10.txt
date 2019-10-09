@@ -1,0 +1,9 @@
+Pesquisar o que são campos estáticos
+
+try catch é usado quando não há o controle das informações, é melhor ter esse controle ?
+
+o quê é um IQueryable
+
+CRUD = create, read, update, and delete 
+
+Skilly tem que ser o nome da solução de interface, pois é daonde será criado o .exe
