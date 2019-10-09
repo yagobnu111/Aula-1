@@ -38,11 +38,17 @@ namespace InterfaceBiblioteca
                 Console.WriteLine("1 - Listar usuários, 2 - Listar livros");
                 Console.WriteLine("3 - Cadastrar livros, 4 - Cadastrar Usuario");
                 Console.WriteLine("5 - Remover Usuário, 6 - Remover Livro");
-                Console.WriteLine("7 - Logoff");
+                Console.WriteLine("7 - Atualizar usuário, 8 - Atualizar livro");
+                Console.WriteLine("9 - Logoff");
                 choice = Console.ReadKey(true).KeyChar;
 
                 switch (choice)
                 {
+                    case '0':
+                        Console.WriteLine("Saindo...");
+                        Thread.Sleep(500);
+                        Environment.Exit(0);
+                        break;
                     case '1':
                         MostrarUsuarios();
                         Console.ReadKey(true);
@@ -51,19 +57,9 @@ namespace InterfaceBiblioteca
                         MostrarLivro();
                         Console.ReadKey(true);
                         break;
-                    case '0':
-                        Console.WriteLine("Saindo...");
-                        Thread.Sleep(500);
-                        Environment.Exit(0);
-                        break;
                     case '3':
                         CadastroDeLivros();
-                        break;
-                    case '7':
-                        Console.WriteLine("Logging off");
-                        Thread.Sleep(1000);
-                        TelaInicial();
-                        break;
+                        break;   
                     case '4':
                         CadastroDeUsuario();
                         break;
@@ -72,6 +68,17 @@ namespace InterfaceBiblioteca
                         break;
                     case '6':
                         RemoveLivro();
+                        break;
+                    case '7':
+                        AtualizaUsuario();
+                        break;
+                    case '8':
+                        AtualizaLivro();
+                        break;
+                    case '9':
+                        Console.WriteLine("Logging off");
+                        Thread.Sleep(1000);
+                        TelaInicial();
                         break;
                     default:
                         Console.WriteLine("I don't understand bro ");
@@ -105,7 +112,6 @@ namespace InterfaceBiblioteca
                 Senha = senhaUsuario
             });
            
-            Console.ReadKey();
         }
         /// <summary>
         /// Método que retorna os livros cadastrados
@@ -113,7 +119,7 @@ namespace InterfaceBiblioteca
         private static void MostrarLivro()
         {
             Console.Clear();
-            livrosController.RetornaListaDeLivros().ForEach(i => Console.WriteLine($"ID : {i.Id} Nome do livro : {i.Nome}"));
+            livrosController.GetLivros().ToList().ForEach(i => Console.WriteLine($"ID : {i.Id} Nome do livro : {i.Nome}"));
         }
         /// <summary>
         /// Metodo que retorna os usuários cadastrados
@@ -122,7 +128,7 @@ namespace InterfaceBiblioteca
         {
 
             Console.Clear();
-            usuarioController.RetornaListaDeUsuarios().ForEach(i => Console.WriteLine($"ID : {i.Id} Usuário : {i.Login} "));
+            usuarioController.GetUsuarios().ToList().ForEach(i => Console.WriteLine($"ID : {i.Id} Usuário : {i.Login} "));
         }
         /// <summary>
         /// Faz um cadastro de novos livros no sistema
@@ -200,6 +206,57 @@ namespace InterfaceBiblioteca
             Console.WriteLine("Livro removido com sucesso! ");
             Console.ReadKey(true);
             MostraMenuSistema();
+        }
+        /// <summary>
+        /// Método que atualiza um Usuario por Id, e define novo usuario e senha
+        /// </summary>
+        private static void AtualizaUsuario()
+        {
+            MostrarUsuarios();
+            Console.WriteLine("Digite o Id do Usuario a ser atualizado: ");
+            int attId = int.Parse(Console.ReadLine());
+            var usuario = usuarioController.GetUsuarios().ToList().Find(x => x.Id == attId);
+            if (usuario == null)
+                return;
+            Console.WriteLine("Digite o novo Login: ");
+            var attLogin = Console.ReadLine();
+            Console.WriteLine("Digite a nova Senha: ");
+            var attSenha = Console.ReadLine();
+
+            usuario.Login = attLogin;
+            usuario.Senha = attSenha;
+
+            var resultado = usuarioController.AtualizarUsuario(usuario);
+            if (resultado)
+                Console.WriteLine("Usuario atualizado com sucesso");
+            else
+                Console.WriteLine("Houve um problema com a atualização");
+
+        }
+        /// <summary>
+        /// Método que atualiza o livro por Id, e define um novo nome
+        /// </summary>
+        private static void AtualizaLivro()
+        {
+            MostrarLivro();
+            Console.WriteLine("Digite o Id do Livro a ser atualizado: ");
+            int attId = int.Parse(Console.ReadLine());
+            var livro = livrosController.GetLivros().ToList().Find(x => x.Id == attId);
+            if (livro == null)
+                return;
+            Console.WriteLine("Digite o novo nome do livro: ");
+            var attNome = Console.ReadLine();
+
+
+            livro.Nome = attNome;
+
+
+            var resultado = livrosController.AtualizarLivro(livro);
+            if (resultado)
+                Console.WriteLine("Livro atualizado com sucesso");
+            else
+                Console.WriteLine("Houve um problema com a atualização");
+
         }
         /// <summary>
         /// Apresenta uma tela inicial antes do login ser feito

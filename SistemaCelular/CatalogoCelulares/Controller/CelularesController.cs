@@ -19,6 +19,10 @@ namespace CatalogoCelulares.Controller
         {
             return contextDB.Celulares.Where(x => x.Ativo == true);
         }  
+        public IQueryable<Celular> GetCelularesDesativados()
+        {
+            return contextDB.Celulares.Where(x => x.Ativo == false);
+        }
         /// <summary>
         /// Método que valida e insere os registros dentro do sistema.
         /// </summary>
@@ -70,11 +74,24 @@ namespace CatalogoCelulares.Controller
                 return false;
             else
             {
-                celular = item;//FirstOrDefault(x => x.Id == item.Id). = item;
-                celular.DataAlteracao = DateTime.Now;
+                //celular = item;//FirstOrDefault(x => x.Id == item.Id). = item;
+                item.DataAlteracao = DateTime.Now;
             }
 
-            celular = item;
+            contextDB.SaveChanges();
+
+            return true;
+        }
+        public bool ReativarCelular(int id)
+        {
+            var celular = contextDB.Celulares.FirstOrDefault(x => x.Id == id && x.Ativo == false);
+            var desativados = contextDB.Celulares;
+
+            if (celular == null)
+                return false;
+
+            celular.Ativo = true;
+
             contextDB.SaveChanges();
 
             return true;
