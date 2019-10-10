@@ -21,7 +21,6 @@ namespace InterfaceBiblioteca
             TelaInicial();
         }
        
-        #region Métodos do programa
         /// <summary>
         /// Mostra no console o menu do sistema
         /// </summary>
@@ -47,15 +46,14 @@ namespace InterfaceBiblioteca
                     case '0':
                         Console.WriteLine("Saindo...");
                         Thread.Sleep(500);
-                        Environment.Exit(0);
                         break;
                     case '1':
                         MostrarUsuarios();
-                        Console.ReadKey(true);
+                        //Console.ReadKey(true);
                         break;
                     case '2':
                         MostrarLivro();
-                        Console.ReadKey(true);
+                        //Console.ReadKey(true);
                         break;
                     case '3':
                         CadastroDeLivros();
@@ -71,6 +69,7 @@ namespace InterfaceBiblioteca
                         break;
                     case '7':
                         AtualizaUsuario();
+                        goto case '9';
                         break;
                     case '8':
                         AtualizaLivro();
@@ -85,6 +84,8 @@ namespace InterfaceBiblioteca
                         Console.ReadKey();
                         break;
                 }
+                Console.WriteLine("-- Pressione qualquer tecla para voltar ao menu ou (0) para sair --");
+                choice = Console.ReadKey(true).KeyChar;
             }
         }
         /// <summary>
@@ -148,10 +149,12 @@ namespace InterfaceBiblioteca
                     
                 });
                 Console.WriteLine("Livro adicionado!");
-                Console.WriteLine("Gostaria de adicionar mais? 1 - Sim 2 - Voltar menu");
-                continuarAdd = Console.ReadKey(true).KeyChar;
-                if (continuarAdd == 2)
-                    MostraMenuSistema();
+                Console.WriteLine("Gostaria de adicionar mais?");
+                Console.WriteLine("1 - Sim  ");
+                Console.WriteLine("Qualquer tecla - Não");
+                continuarAdd = Console.ReadKey(true).KeyChar;            
+                //if (continuarAdd == 2)
+                   // MostraMenuSistema();
             }
         }
         /// <summary>
@@ -175,9 +178,8 @@ namespace InterfaceBiblioteca
                     Senha = senhaDoUsuario
                     
                 });
-                Console.WriteLine("Usuario cadastrado! Pressione qualquer tecla para voltar");
-                Console.ReadKey(true);
-                MostraMenuSistema();
+                Console.WriteLine("Usuario cadastrado!");
+
             }
         }
         /// <summary>
@@ -191,8 +193,6 @@ namespace InterfaceBiblioteca
             var idRemove = int.Parse(Console.ReadLine());
             usuarioController.RemoverUsuarioPorId(idRemove);
             Console.WriteLine("Usuario removido com sucesso! ");
-            Console.ReadKey(true);
-            MostraMenuSistema();
         }
         /// <summary>
         /// Método que remove um livro cadastrado com base no ID
@@ -204,8 +204,6 @@ namespace InterfaceBiblioteca
             var idRemove = int.Parse(Console.ReadLine());
             livrosController.RemoverLivroPorId(idRemove);
             Console.WriteLine("Livro removido com sucesso! ");
-            Console.ReadKey(true);
-            MostraMenuSistema();
         }
         /// <summary>
         /// Método que atualiza um Usuario por Id, e define novo usuario e senha
@@ -228,7 +226,10 @@ namespace InterfaceBiblioteca
 
             var resultado = usuarioController.AtualizarUsuario(usuario);
             if (resultado)
+            {
                 Console.WriteLine("Usuario atualizado com sucesso");
+                Console.WriteLine("Faça o login novamente");
+            }
             else
                 Console.WriteLine("Houve um problema com a atualização");
 
@@ -273,6 +274,5 @@ namespace InterfaceBiblioteca
 
             MostraMenuSistema();
         }
-        #endregion
     }
 }
