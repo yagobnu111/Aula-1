@@ -20,6 +20,15 @@ namespace FloresLibrary.Controller
             contextDB.Flores.Add(flor);
             contextDB.SaveChanges();
         }
+        public int TotalFlores()
+        {
+            return GetFlores().Sum(x => x.Quantidade);
+        }
+
+        public List<Flor> FloresOrdenadasPorQuantidade()
+        {
+            return GetFlores().OrderByDescending(x => x.Quantidade).ToList();
+        }
 
     }
 }

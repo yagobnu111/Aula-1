@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BicicletasLibrary", "BicicletasLibrary\BicicletasLibrary.csproj", "{EA9C2E7D-32CB-440A-8232-AB9081445D0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biken", "Biken\Biken.csproj", "{0174A5E6-A218-47FD-BCE8-B1717287F445}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA9C2E7D-32CB-440A-8232-AB9081445D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9C2E7D-32CB-440A-8232-AB9081445D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9C2E7D-32CB-440A-8232-AB9081445D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9C2E7D-32CB-440A-8232-AB9081445D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0174A5E6-A218-47FD-BCE8-B1717287F445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0174A5E6-A218-47FD-BCE8-B1717287F445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0174A5E6-A218-47FD-BCE8-B1717287F445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0174A5E6-A218-47FD-BCE8-B1717287F445}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63CC47E9-D798-4848-B4B4-E89FAD40EE95}
+	EndGlobalSection
+EndGlobal

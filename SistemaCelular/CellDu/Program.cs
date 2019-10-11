@@ -71,6 +71,10 @@ namespace CellDu
             Console.WriteLine("Digite o Id do celular a ser removido");
             int idRemove = int.Parse(Console.ReadLine());
             var resultado = celulares.RemoveCelular(idRemove);
+            if (resultado)
+                Console.WriteLine("Celular deletado com sucesso!");
+            else
+                Console.WriteLine("Houve algum erro e o celular não foi removido!");
 
         }
         //listar

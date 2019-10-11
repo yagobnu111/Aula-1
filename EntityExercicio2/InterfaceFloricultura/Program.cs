@@ -13,13 +13,13 @@ namespace InterfaceFloricultura
         public static FlorController florController = new FlorController();
         static void Main(string[] args)
         {
-            ListaFloresMaiorQuantidade();
-            MostraTotalFlores();
+            MenuFloricultura();
             Console.ReadKey();
 
         }
         public static void AdicionarFlor()
         {
+            Console.Clear();
             Console.WriteLine("Digite o nome da flor : ");
             var nome = Console.ReadLine();
             Console.WriteLine("Digite a quantidade : ");
@@ -29,31 +29,47 @@ namespace InterfaceFloricultura
         }
         public static void ListaFlores()
         {
+            Console.Clear();
             Console.WriteLine("--- Lista de flores ---");
             florController.GetFlores().ToList().ForEach(x => TemplateListagem(x.Nome, x.Quantidade));
         }
         public static void ListaFloresMaiorQuantidade()
         {
+            Console.Clear();
             Console.WriteLine("--- Lista de flores ordenadas ---");
-            var floresOrdenadas = florController.GetFlores().ToList().OrderByDescending(x => x.Quantidade);
-            floresOrdenadas.ToList().ForEach(x => TemplateListagem(x.Nome, x.Quantidade));
+            florController.FloresOrdenadasPorQuantidade().ForEach(x => TemplateListagem(x.Nome, x.Quantidade));
         }
         public static void MostraTotalFlores()
         {
-            var somaFlores = florController.GetFlores().Sum(x => x.Quantidade);
-            Console.WriteLine($"Quantidade total de flores {somaFlores}");
+            Console.WriteLine($"Quantidade total de flores: {florController.TotalFlores()}");
         }
         public static void MenuFloricultura()
         {
             Console.WriteLine("--- Sistema Floricultura ---");
-            var choice = '1';
+            Console.WriteLine("0 - Sair");
+            Console.WriteLine("1 - Listar flores");
+            Console.WriteLine("2 - Adicionar Flores   ");
+            int choice = Console.ReadKey().KeyChar;
 
             while (choice != '0')
             {
-                AdicionarFlor();
+                switch (choice)
+                {
+                    case '1':
+                        ListaFloresMaiorQuantidade();
+                        MostraTotalFlores();
+                        break;
+                    case '2':
+                        AdicionarFlor();
+                        break;                
+                }
                 Console.WriteLine("(0) sair (Qualquer outra tecla) continuar");
                 choice = Console.ReadKey().KeyChar;
             }
+            
+            
+
+            
         }
         public static void TemplateListagem(string nome, int quant)
         {
