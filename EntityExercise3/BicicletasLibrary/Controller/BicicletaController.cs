@@ -27,6 +27,7 @@ namespace BicicletasLibrary.Controller
         //adicionar
         public void AddBicicleta(Bicicleta bike)
         {
+
             contextDB.Bicicletas.Add(bike);
             contextDB.SaveChanges();
         }
