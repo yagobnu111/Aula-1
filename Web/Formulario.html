@@ -2,14 +2,46 @@
 <html>
 <head>
     <title> Tela de formulario</title>
+    <style>
+        body {
+            background-image:url('https://thumbs.gfycat.com/ForthrightTediousChrysomelid-size_restricted.gif');
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+        #formulario{
+            position: absolute;
+            left: 41%;
+            top: 33%;
+            text-align: center;
+            border:solid;
+            border-color:#ffffff36;
+            width:6cm;
+            height:6cm;
+            background-color: #ffffff63;
+        }
+        #Enviar{
+            width:120px;
+        }
+        .MarginElementos{
+            margin: 3px;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" name="Nome" id="Nome" value="Digite seu nome" /> <br />
-    <input type="text" name="Idade" id="Idade" value="Digite sua idade" /> <br />
-        <input type="radio" name="Sexo" value="male"> Male<br>
-        <input type="radio" name="Sexo" value="female"> Female<br>
-    <input type="text" name="Nacionalidade" id="Nacionalidade" value="Sua nacionalidade" /> <br />
-    <input type="text" name="Cpf" id="Cpf" value="Digite seu cpf" />
+    <div id="formulario" >
+        <h2 style="text-align:center"> Formulário</h2>
+        <input class="MarginElementos" type="text" name="Nome" id="Nome" size="21" placeholder="Digite seu nome" /> <br />
+        <input class="MarginElementos" type="text" name="Nacionalidade" id="Nacionalidade" placeholder="Nacionalidade" size="12" />
+        <input class="MarginElementos" type="text" name="Idade" id="Idade" placeholder="Idade" size="2" /> <br />
+        <input class="MarginElementos" type="text" name="Cpf" id="Cpf" placeholder="Digite seu cpf" size="9"/>
+        <input class="MarginElementos" type="text" name="Nascimento" id="Nascimento" placeholder="Data nasc." size="5" /> <br />
+        <select class="MarginElementos"name="Sexo" id="Sexo" required>
+            <option value="" disabled selected>Sexo</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+        </select> <br />
+        <input  class="MarginElementos" type="button" name="Enviar" id="Enviar" value="Enviar" /> 
 
+    </div>
 </body>
 </html>
