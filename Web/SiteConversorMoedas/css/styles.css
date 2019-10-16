@@ -1,0 +1,8 @@
+body {
+    background-image: url('https://media2.giphy.com/media/Gz1Ebo1yJmC9q/source.gif');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+#card {
+    background-color: #ffffffe6;
+}
