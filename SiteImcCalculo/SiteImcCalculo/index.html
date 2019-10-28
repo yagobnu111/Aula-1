@@ -18,30 +18,47 @@
                     <div class="card-header">
                         Calculo Imc
                     </div>
-                    <form class="col-md-12 card-body" name="frm" send-post ="CalculoImc">
+                    <form class="col-md-12 card-body" name="formimc">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Nome</span>
                             </div>
-                            <input type="text" class="form-control" name="nomeUsuario" />
+                            <input type="text" class="form-control" name="Nome" />
                         </div>
                         <div class="row form-group">
-                            <div class="col-md-6 ">
-                                <input type="text" class="w-100 form-control" name="peso" placeholder="Informe seu peso">
+                            <div class="input-group mb-3 col-md-6">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Peso</span>
+                                </div>
+                                <input type="text" class="form-control" name="Peso" />
                             </div>
-                            <div class="col-md-6 ">
-                                <input type="text" class="w-100 form-control" name="altura" placeholder="Informe sua altura">
+                            <div class="input-group mb-3 col-md-6">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Altura</span>
+                                </div>
+                                <input type="text" class="form-control" name="Altura" />
                             </div>
                         </div>
-                        <div class="row form-group">
-                        <div class="col-md-6 ">
-                            <input type="button" class="w-100 form-control btn-info" name="btnconsulta" value="Calcular">
-                        </div>
-                        <div class="col-md-6 ">
-                            <input type="t"ext class="w-100 form-control" name="imc" placeholder="resultado" disabled>
-                        </div>
-                    </div>
                     </form>
+                    <form class="col-md-12 card-body" name="formresultado">
+                        <div class="row form-group">
+                            <div class="col-md-4 ">
+                                <input type="button" class="w-100 form-control btn-info" name="btnconsulta" value="Calcular">
+                            </div>
+                            <div class="input-group mb-3 col-md-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Imc</span>
+                                </div>
+                                <input type="text" class="form-control" name="imc" />
+                            </div>
+                            <div class="input-group mb-3 col-md-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Status</span>
+                                </div>
+                                <input type="text" class="form-control" name="situacao" />
+                            </div>
+                        </div>
+                        </form>
                 </div>
             </div>
         </div>
