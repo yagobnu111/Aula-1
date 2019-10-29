@@ -8,10 +8,12 @@ using SolucaoListaDeNomes.Models;
 
 namespace SolucaoListaDeNomes.Controllers
 {
-    
+
     public class PessoaController : ApiController
     {
-        List<Pessoa> listaDePessoas = new List<Pessoa>()
+        public static PessoaContext contextDB = new PessoaContext();
+
+        /*List<Pessoa> listaDePessoas = new List<Pessoa>()
         {
             new Pessoa(){Nome = "Gabriel", Idade = 24},
             new Pessoa(){Nome = "Bruna", Idade = 25},
@@ -24,11 +26,30 @@ namespace SolucaoListaDeNomes.Controllers
             new Pessoa(){Nome = "Jackson", Idade = 17},
             new Pessoa(){Nome = "Yago", Idade = 105},
             new Pessoa(){Nome = "Pedro", Idade = 27},
-        };
+        };*/
+        public IQueryable<Pessoa> GetPessoas()
+        {
+            return contextDB.pessoas;
+        }
 
         public List<Pessoa> Get()
         {
-            return listaDePessoas;
+            return GetPessoas().OrderByDescending(x => x.Idade).ToList();
         }
+          
+        public Pessoa Post(Pessoa values)
+        {
+            /*ObjetoImc imcCalc = values;
+            listaDeObjetos.Add(imcCalc);
+            return imcCalc;*/
+
+            Pessoa pessoa1 = values;
+
+            contextDB.pessoas.Add(pessoa1);
+
+            return pessoa1;
+
+        }
+
     }
 }

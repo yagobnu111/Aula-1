@@ -31,7 +31,7 @@ namespace CalculandoImcV3.Controllers
             var imc = peso / Math.Pow(altura, 2);
 
             return ($"Olá {nome} seu IMC é {imc} e ele foi calculado de acordo com sua Altura:{altura} e Peso:{peso}");
-                
+
         }
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public double Get(double peso, double altura)
@@ -42,7 +42,7 @@ namespace CalculandoImcV3.Controllers
         }
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public string Get (double imc)
+        public string Get(double imc)
         {
             if (imc < 18.5)
                 return "Abaixo do peso";
@@ -83,9 +83,6 @@ namespace CalculandoImcV3.Controllers
 
             return imcCalc;
         }
-
-
-
-
+       
     }
 }
